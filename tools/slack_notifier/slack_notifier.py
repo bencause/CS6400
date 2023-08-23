@@ -25,7 +25,7 @@ def get_close_events(x_days):
 def slack_thread(df):
     alert_text = f"""
         :crannounce: `CS6400 events notification` : `Incoming events within 7 days` :crannounce: 
-        (Source : pending_this is just test)
+        (Source : https://github.com/bencause/CS6400/blob/main/tools/slack_notifier/slack_notifier.py)
         ```{df.to_markdown()}```
         """
     return alert_text
