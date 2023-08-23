@@ -1,0 +1,31 @@
+name: All run 
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 */2 * *"
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    
+    env:
+      CUSTOM_SLACK_WEBHOOK_URL: ${{ secrets.CUSTOM_SLACK_WEBHOOK_URL }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install Dependencies
+        run: |
+          cd tools/slack_notifier
+          python -m pip install --upgrade pip
+          pip install -r requirement.txt
+
+      - name: Run Script
+        run: python tools/slack_notifier/slack_notifier.py
