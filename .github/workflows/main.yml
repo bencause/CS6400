@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      SLACK_API_KEY: ${{ secrets.CUSTOM_SLACK_WEBHOOK_URL }}
+      CUSTOM_SLACK_WEBHOOK_URL: ${{ secrets.CUSTOM_SLACK_WEBHOOK_URL }}
 
     steps:
       - name: Checkout Repository
