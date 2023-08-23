@@ -25,4 +25,6 @@ jobs:
           pip install -r requirement.txt
 
       - name: Run Script
-        run: python slack_notifier.py
+        run: ｜
+          cd tools/slack_notifier
+          python slack_notifier.py
