@@ -9,7 +9,7 @@ webhook_url = os.environ['CUSTOM_SLACK_WEBHOOK_URL']
 client = WebhookClient(webhook_url)
 #timezone
 eastern = pytz.timezone('US/Eastern')
-csv_file_path = "cs6400.csv"
+csv_file_path = "tools/slack_notifier/cs6400.csv"
 
 def get_close_events(x_days):
     df = pd.read_csv(csv_file_path)
