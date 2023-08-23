@@ -9,9 +9,10 @@ webhook_url = os.environ['CUSTOM_SLACK_WEBHOOK_URL']
 client = WebhookClient(webhook_url)
 #timezone
 eastern = pytz.timezone('US/Eastern')
+csv_file_path = "cs6400.csv"
 
 def get_close_events(x_days):
-    df = pd.read_csv('cs6400.csv')
+    df = pd.read_csv(csv_file_path)
     df['Date'] = pd.to_datetime(df['Date'], format='%a %b %d, %Y').dt.tz_localize(eastern)
     current_date_us_east = datetime.now(eastern)
     df['date_difference'] = (df['Date'] - current_date_us_east).dt.days
